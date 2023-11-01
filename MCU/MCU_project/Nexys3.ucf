@@ -1,0 +1,56 @@
+## This file is a general .ucf for Nexys3 rev B board
+## To use it in a project:
+## - remove or comment the lines corresponding to unused pins
+## - rename the used signals according to the project
+
+## Clock signal
+NET "clk"            LOC = "V10" | IOSTANDARD = "LVCMOS33";   #Bank = 2, pin name = IO_L30N_GCLK0_USERCCLK,            Sch name = GCLK
+Net "clk" TNM_NET = sys_clk_pin;
+TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100000 kHz;
+
+## Switches
+NET "SW<0>"  LOC = "T10" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L29N_GCLK2,                     Sch name = SW0
+NET "SW<1>"  LOC = "T9"  | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L32P_GCLK29,                    Sch name = SW1
+NET "SW<2>"  LOC = "V9"  | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L32N_GCLK28,                    Sch name = SW2
+NET "SW<3>"  LOC = "M8"  | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L40P,                           Sch name = SW3
+NET "SW<4>"  LOC = "N8"  | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L40N,                           Sch name = SW4
+NET "SW<5>"  LOC = "U8"  | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L41P,                           Sch name = SW5
+NET "SW<6>"  LOC = "V8"  | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L41N_VREF,                      Sch name = SW6
+NET "SW<7>"  LOC = "T5"  | IOSTANDARD = "LVCMOS33";   #Bank = MISC, Pin name = IO_L48N_RDWR_B_VREF_2,          Sch name = SW7
+
+## Buttons
+NET "rst"        LOC = "A8"  | IOSTANDARD = "LVCMOS33";   #Bank = 0, Pin name = IO_L33N,                           Sch name = BTNU
+NET "EI"   LOC = "C9"  | IOSTANDARD = "LVCMOS33";   #Bank = 0, Pin name = IO_L34N_GCLK18,                Sch name = BTND
+
+## VGA Connector
+NET "vga_cont<7>"   LOC = "U7"  | IOSTANDARD = "LVCMOS33";   # Bank = 2, Pin name = IO_L43P,                          Sch name = RED0
+NET "vga_cont<8>"   LOC = "V7"  | IOSTANDARD = "LVCMOS33";   # Bank = 2, Pin name = IO_L43N,                          Sch name = RED1
+NET "vga_cont<9>"   LOC = "N7"  | IOSTANDARD = "LVCMOS33";   # Bank = 2, Pin name = IO_L44P,                          Sch name = RED2
+NET "vga_cont<4>"   LOC = "P8"  | IOSTANDARD = "LVCMOS33";   # Bank = 2, Pin name = IO_L44N,                          Sch name = GRN0
+NET "vga_cont<5>"   LOC = "T6"  | IOSTANDARD = "LVCMOS33";   # Bank = 2, Pin name = IO_L45P,                          Sch name = GRN1
+NET "vga_cont<6>"   LOC = "V6"  | IOSTANDARD = "LVCMOS33";   # Bank = 2, Pin name = IO_L45N,                          Sch name = GRN2
+NET "vga_cont<2>"   LOC = "R7"  | IOSTANDARD = "LVCMOS33";   # Bank = 2, Pin name = IO_L46P,                          Sch name = BLU1
+NET "vga_cont<3>"   LOC = "T7"  | IOSTANDARD = "LVCMOS33";   # Bank = 2, Pin name = IO_L46N,                          Sch name = BLU2
+
+NET "vga_cont<1>"   LOC = "N6"  | IOSTANDARD = "LVCMOS33";   # Bank = 2, Pin name = IO_L47P,                          Sch name = HSYNC
+NET "vga_cont<0>"   LOC = "P7"  | IOSTANDARD = "LVCMOS33";   # Bank = 2, Pin name = IO_L47N,                          Sch name = VSYNC
+
+#JC
+NET "Keypad_cols<3>"   LOC = "H3"  | IOSTANDARD = "LVCMOS33";   #Bank = 3, Pin name = IO_L44N_GCLK20_M3A6,               Sch name = JC1
+NET "Keypad_cols<2>"   LOC = "L7"  | IOSTANDARD = "LVCMOS33";   #Bank = 3, Pin name = IO_L45P_M3A3,                      Sch name = JC2
+NET "Keypad_cols<1>"   LOC = "K6"  | IOSTANDARD = "LVCMOS33";   #Bank = 3, Pin name = IO_L45N_M3ODT,                     Sch name = JC3
+NET "Keypad_cols<0>"   LOC = "G3"  | IOSTANDARD = "LVCMOS33";   #Bank = 3, Pin name = IO_L46P_M3CLK,                     Sch name = JC4
+NET "Keypad_rows<3>"  LOC = "G1"  | IOSTANDARD = "LVCMOS33";   #Bank = 3, Pin name = IO_L46N_M3CLKN,                    Sch name = JC7
+NET "Keypad_rows<2>"  LOC = "J7"  | IOSTANDARD = "LVCMOS33";   #Bank = 3, Pin name = IO_L47P_M3A0,                      Sch name = JC8
+NET "Keypad_rows<1>"  LOC = "J6"  | IOSTANDARD = "LVCMOS33";   #Bank = 3, Pin name = IO_L47N_M3A1,                      Sch name = JC9
+NET "Keypad_rows<0>"  LOC = "F2"  | IOSTANDARD = "LVCMOS33";   #Bank = 3, Pin name = IO_L48P_M3BA0,                     Sch name = JC10
+
+# Leds
+#NET "Led<0>"  LOC = "U16" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L2P_CMPCLK,                     Sch name = LD0
+#NET "Led<1>"  LOC = "V16" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L2N_CMPMOSI,                    Sch name = LD1
+#NET "Led<2>"  LOC = "U15" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L5P,                            Sch name = LD2
+#NET "Led<3>"  LOC = "V15" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L5N,                            Sch name = LD3
+#NET "Led<4>"  LOC = "M11" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L15P,                           Sch name = LD4
+#NET "Led<5>"  LOC = "N11" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L15N,                           Sch name = LD5
+#NET "Led<6>"  LOC = "R11" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L16P,                           Sch name = LD6
+#NET "Led<7>"  LOC = "T11" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L16N_VREF,                      Sch name = LD7
